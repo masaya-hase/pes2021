@@ -1,0 +1,350 @@
+/* base.html */
+
+.brand {
+  font-weight: bold;
+  font-size: 20px;
+  color: #fffaf0;
+}
+
+.site-header {
+  position: relative;
+  background-color: #008080; }
+
+.site-header__wrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  @media (min-width: 600px) {
+    .site-header__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0; } }
+@media (min-width: 600px) {
+  .nav__wrapper {
+    display: flex; } }
+
+@media (max-width: 599px) {
+  .nav__wrapper {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #008080;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; }
+    .nav__wrapper.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0); } }
+
+.nav__item a {
+  color: #fffaf0;
+  display: block;
+  padding: 1.5rem 1rem;
+  margin-right: 30px;
+}
+
+.nav__toggle {
+  display: none; }
+  @media (max-width: 599px) {
+    .nav__toggle {
+      display: block;
+      position: absolute;
+      right: 1rem;
+      top: 1rem; } }
+
+h1 {
+   margin: 0;
+   padding: 0;
+   font-size: 20px;
+}
+
+a {
+   text-decoration: none;
+   color: #4b4b4b;
+}
+
+ul {
+    display: flex;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+   margin: 0 0 0 15px;
+   font-size: 14px;
+   list-style: none;
+}
+
+
+/* list.html */
+
+.list_player_header {
+    display: block;
+    text-align: center;
+    margin: 50px 70px 15px;
+    padding: 5px;
+    font-size: 22px;
+    line-height: 2.3;
+    letter-spacing: .05rem;
+    background: #333;
+    color: #fff;
+}
+
+.table {
+    padding: center;
+    width: 80%;
+    table-layout: fixed;
+}
+
+.list_table tr:nth-child(even) td{
+    background-color: #f9f9f9;
+}
+
+/* .list_table span{
+    padding: 15px 15px 15px 1px;
+    display: inline-block;
+} */
+
+.iconic_value {
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    width:50px;
+    text-align: center;
+    background-color: #e91e63;
+    color: #ffffff;
+}
+
+.list_NF{
+    display: block;
+    padding: 15px 5px 15px 5px;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center;
+    background-color: #95e3cb;
+    color: #ffffff;
+}
+
+.list_EF{
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center;
+    background-color: #37e514;
+    color: #ffffff;
+}
+
+.list_CF{
+    background: #da2e20;
+    color: #fff;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+.list_MF{
+    background: #357920;
+    color: #fff;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+.list_DF{
+    background: #1036ed;
+    color: #fff;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+.list_GK{
+    background: #edd046;
+    color: #333;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+/* detail.html */
+
+/* detail.html 共通 */
+
+.player_header {
+    display: block;
+    text-align: center;
+    margin: 100px 70px 15px;
+    padding: 20px;
+    font-size: 22px;
+    line-height: 2.3;
+    letter-spacing: .05rem;
+    background: #333;
+    color: #fff;
+}
+
+
+/* detail.html 選手情報 */
+
+.player_info {
+    flex-wrap:wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+ul.player_info li{
+    border: 1px solid #ccc;
+    text-align: center;
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background-color: #f2f2f5;
+    box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.271);
+    transition: background-color 100ms ease-in-out;
+    list-style: none;
+    margin: 12px 0 12px 10px;
+    padding: .6em;
+    font-size: medium;
+}
+
+ul.player_info h5{
+    font-weight: bold;
+}
+
+.clearfix{
+    display: block;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+ul.player_info li:nth-child(-n+1) {
+    width: 96.7%;
+    font-weight: bold;
+    font-size: large;
+}
+
+ul.player_info li:nth-child(1) span{
+    display: inline;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* detail.html　選手スキル */
+
+.player_info2 {
+    flex-wrap:wrap;
+    margin-left: 300px;
+    margin-right: 210px;
+}
+
+ul.player_info2 li{
+    font-size: medium;
+    border: 1px solid #ccc;
+    text-align: center;
+    float: left;
+    width: 40%;
+    margin-right: 4%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    background-color: #e6e6fa;
+    box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.271);
+    transition: background-color 100ms ease-in-out;
+    list-style: none;
+    padding: 15px 5px;
+}
+
+ul.player_info2 li:nth-child(even){
+	margin-right: 0;
+}
+
+/* detail.html　適正ポジション */
+
+#image{
+    margin: 15px 250px;
+    text-align: center;
+    padding-left: 100px;
+}
+
+/* detail.html　選手能力一覧 */
+
+.level_player_header {
+    display: block;
+    text-align: center;
+    margin: 0 70px 15px;
+    padding: 20px;
+    font-size: 22px;
+    line-height: 2.3;
+    letter-spacing: .05rem;
+    background: #333;
+    color: #fff;
+}
+
+table.table-striped {
+    border: 3px solid;
+    margin: 15px 380px;
+    width: 55%;
+}
+
+.NF{
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    width:50px;
+    text-align: center;
+    background-color: #95e3cb;
+    color: #ffffff;
+}
+
+.EF{
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center;
+    background-color: #37e514;
+    color: #ffffff;
+}
+
+.SF{
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center;
+    background-color: #e85c0b;
+    color: #ffffff;
+}
+
+.default{
+    display: block;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center;
+    background-color: #f7314f;
+    color: #ffffff;
+}

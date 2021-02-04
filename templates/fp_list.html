@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load basetemp %}
+
+{% block header %}
+<link rel='stylesheet' type="text/css" href="{% static 'css/style.css' %}">
+{% endblock header %}
+
+{% block content %}
+<h2 class="list_player_header">FP選手一覧</h2>
+<div class="list_table">
+<table class="table" align="center">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">ポジション</th>
+      <th scope="col">名前</th>
+      <th scope="col">初期</th>
+      <th scope="col">最大</th>
+      <th scope="col">年齢</th>
+      <th scope="col">クラブ</th>
+      <th scope="col">プレースタイル</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in object_list %}
+    <tr>
+      <th scope="row"><img src='{{item.player_image.url}}' width=50></th>
+      <td><span class={{ item.position|list_posi }}>{{ item.position }}</span></td>
+      <td><span class="span"><a href="{% url 'detail' item.pk %}" >{{ item.player_name }}</a></span></td>
+      <td><span class={{ item.initial|list_css }}><strong>{{ item.initial }}</strong></span></td>
+      <td><span class={{ item.maximum|list_css }}><strong>{{ item.maximum }}</strong></span></td>
+      <td><span class="span">{{ item.age }}</span></td>
+      <td><span class="span">{{ item.club }}</span></td>
+      <td><span class="span">{{ item.playstyle }}</span></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}

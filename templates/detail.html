@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load basetemp %}
+
+{% block header %}
+<link rel='stylesheet' type="text/css" href="{% static 'css/style.css' %}">
+{% comment %} <script src="{% static 'javascript/pes.js' %}"></script> {% endcomment %}
+{% endblock header %}
+
+{% block content %}
+<body>
+  <h2 class="player_header">{{ player.player_name}}の選手情報</h2>
+  <ul class="player_info">
+    <li class="clearfix">
+      <img src='{{player.player_image.url}}' alt="選手画像" width=100px >
+      <span>{{ player.player_name }}</span>
+    </li>
+    <li>
+      <h5>リリース日</h5>
+      <span>{{ player.date_field }}</span>
+    </li>
+    <li>
+      <h5>初期 / 最大</h5>
+      <span>{{ player.initial }} / {{ player.maximum }}</span>
+    </li>
+    <li>
+      <h5>レアリティ</h5>
+      <span>{{ player.rarity }}</span>
+    </li>
+    <li>
+      <h5>国名</h5>
+      <span>{{ player.country }}</span>
+    </li>
+    <li>
+      <h5>所属クラブ</h5>
+      <span>{{ player.club }}</span>
+    </li>
+    <li>
+      <h5>年齢</h5>
+      <span>{{ player.age }}歳</span>
+    </li>
+    <li>
+      <h5>身長 / 体重</h5>
+      <span>{{ player.height }}cm　/　{{ player.body_weight }}kg</span>
+    </li>
+    <li>
+      <h5>利き足</h5>
+      <span>{{ player.dominant_foot }}</span>
+    </li>
+    <li>
+      <h5>ポジション</h5>
+      <span>{{ player.position }}</span>
+    </li>
+    <li>
+      <h5>プレイスタイル</h5>
+      <span>{{ player.playstyle }}</span>
+    </li>
+   </ul>
+   <h2 class="player_header">適正ポジション</h2>
+   <div id="image">
+   <img src='{{ formation.formation_images.url　}}' alt="適正ポジション" width=65% >
+   </div>
+   <h2 class="level_player_header">レベルマックス値</h2>
+   <table class="table table-striped">
+   <thead>
+    <tr>
+      <th scope="col">能力名</th>
+      <th scope="col">最大値</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">オフェンスセンス</th>
+      <td class={{ ability.offense_sense|of_df_fig_css }}>{{ ability.offense_sense }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ボールコントロール</th>
+      <td class={{ ability.ball_control|of_df_fig_css }}>{{ ability.ball_control }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ドリブル</th>
+      <td class={{ ability.dribble|of_df_fig_css }}>{{ ability.dribble }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ボールキープ</th>
+      <td class={{ ability.ball_keep|of_df_fig_css }}>{{ ability.ball_keep }}</td>
+    <tr>
+      <th scope="row">グランダーパス</th>
+      <td class={{ ability.grander_pass|of_df_fig_css }}>{{ ability.grander_pass }}</td>
+    </tr>
+    <tr>
+      <th scope="row">フライパス</th>
+      <td class={{ ability.fly_pass|of_df_fig_css }}>{{ ability.fly_pass }}</td>
+    </tr>
+    <tr>
+      <th scope="row">決定力</th>
+      <td class={{ ability.determining_power|of_df_fig_css }}>{{ ability.determining_power }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ヘディング</th>
+      <td class={{ ability.heading|of_df_fig_css }}>{{ ability.heading }}</td>
+    </tr>
+    <tr>
+      <th scope="row">プレースキック</th>
+      <td class={{ ability.place_kick|of_df_fig_css }}>{{ ability.place_kick }}</td>
+    </tr>
+    <tr>
+      <th scope="row">カーブ</th>
+      <td class={{ ability.curve|of_df_fig_css }}>{{ ability.curve }}</td>
+    </tr>
+    <tr>
+      <th scope="row">スピード</th>
+      <td class={{ ability.speed|of_df_fig_css }}>{{ ability.speed }}</td>
+    </tr>
+    <tr>
+      <th scope="row">瞬発力</th>
+      <td class={{ ability.instantaneous_power|of_df_fig_css }}>{{ ability.instantaneous_power }}</td>
+    </tr>
+    <tr>
+      <th scope="row">キック力</th>
+      <td class={{ ability.kick_power|of_df_fig_css }}>{{ ability.kick_power }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ジャンプ</th>
+      <td class={{ ability.jumping|of_df_fig_css }}>{{ ability.jumping }}</td>
+    </tr>
+    <tr>
+      <th scope="row">フィジカルコンタクト</th>
+      <td class={{ ability.physical_contact|of_df_fig_css }}>{{ ability.physical_contact }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ボディコントロール</th>
+      <td class={{ ability.body_control|of_df_fig_css }}>{{ ability.body_control }}</td>
+    </tr>
+    <tr>
+      <th scope="row">体力</th>
+      <td class={{ ability.physical_fitness|of_df_fig_css }}>{{ ability.physical_fitness }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ディフェンスセンス</th>
+      <td class={{ ability.defense_sense|of_df_fig_css }}>{{ ability.defense_sense }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ボール奪取</th>
+      <td class={{ ability.take_the_ball|of_df_fig_css }}>{{ ability.take_the_ball }}</td>
+    </tr>
+    <tr>
+      <th scope="row">アグレッシブネス</th>
+      <td class={{ ability.aggressiveness|of_df_fig_css }}>{{ ability.aggressiveness }}</td>
+    </tr>
+    <tr>
+      <th scope="row">GKセンス</th>
+      <td class={{ ability.gksense|of_df_fig_css }}>{{ ability.gksense }}</td>
+    </tr>
+    <tr>
+      <th scope="row">キャッシング</th>
+      <td class={{ ability.catching|of_df_fig_css }}>{{ ability.catching }}</td>
+    </tr>
+    <tr>
+      <th scope="row">クリアリング</th>
+      <td class={{ ability.clearing|of_df_fig_css }}>{{ ability.clearing }}</td>
+    </tr>
+    <tr>
+      <th scope="row">コブラシング</th>
+      <td class={{ ability.cobraging|of_df_fig_css }}>{{ ability.cobraging }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ディフレクティング</th>
+      <td class={{ ability.deflectiveing|of_df_fig_css }}>{{ ability.deflectiveing }}</td>
+    </tr>
+    <tr>
+      <th scope="row">逆足頻度</th>
+      <td class={{ ability.reverse_foot_frequency|reverse_css }}>{{ ability.reverse_foot_frequency }}</td>
+    </tr>
+    <tr>
+      <th scope="row">逆足精度</th>
+      <td class={{ ability.reverse_foot_accuracy|reverse_css }}>{{ ability.reverse_foot_accuracy }}</td>
+    </tr>
+    <tr>
+      <th scope="row">コンディション安定度</th>
+      <td class={{ ability.condition_stability|condi_css }}>{{ ability.condition_stability }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ケガ耐性</th>
+      <td class={{ ability.injury_resistance|reverse_css }}>{{ ability.injury_resistance }}</td>
+    </tr>
+   </tr>
+   </tbody>
+   </table>
+  <h2 class="player_header">選手スキル一覧</h2>
+  <ul class="player_info2">
+   {% for skill_item in skill %}
+   <li>{{ skill_item.player_skill }}</li>
+   {% endfor %}
+  </ul>
+</body>
+{% endblock content %}
